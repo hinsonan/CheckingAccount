@@ -39,5 +39,14 @@ namespace CheckingAccountTest
             Assert.Equal(600, RegularAccount.getBalance());
 
         }
+
+        [Fact]
+        public void AddInterestTest()
+        {
+            var RegularAccount = new RegularAccount(1000);
+            RegularAccount.AddInterest();
+            Assert.Equal(1000.416, RegularAccount.getBalance(), 3);
+
+        }
     }
 }
