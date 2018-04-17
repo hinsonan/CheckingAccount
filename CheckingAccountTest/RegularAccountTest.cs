@@ -9,43 +9,46 @@ namespace CheckingAccountTest
         [Fact]
         public void WithdrawalTest()
         {
-            var RegularAccount = new RegularAccount(600);
-            RegularAccount.Withdrawal(599);
-            Assert.Equal(1, RegularAccount.getBalance());
+            var regularAccount = new RegularAccount(600);
+            regularAccount.Withdrawal(599);
+            Assert.Equal(1, regularAccount.getBalance());
 
-            RegularAccount.setBalance(600);
-            RegularAccount.Withdrawal(600);
-            Assert.Equal(0, RegularAccount.getBalance());
+            regularAccount.setBalance(600);
+            regularAccount.Withdrawal(600);
+            Assert.Equal(0, regularAccount.getBalance());
 
-            RegularAccount.setBalance(600);
-            RegularAccount.Withdrawal(601);
-            Assert.Equal(-36, RegularAccount.getBalance());
+            regularAccount.setBalance(600);
+            regularAccount.Withdrawal(601);
+            Assert.Equal(-36, regularAccount.getBalance());
 
-            RegularAccount.setBalance(-1);
-            RegularAccount.Withdrawal(1);
-            Assert.Equal(-1, RegularAccount.getBalance());
+            regularAccount.setBalance(-1);
+            regularAccount.Withdrawal(1);
+            Assert.Equal(-1, regularAccount.getBalance());
 
         }
 
         [Fact]
         public void DepositTest()
         {
-            var RegularAccount = new RegularAccount(600);
-            RegularAccount.Deposit(50);
-            Assert.Equal(650, RegularAccount.getBalance());
+            var regularAccount = new RegularAccount(600);
+            regularAccount.Deposit(50);
+            Assert.Equal(650, regularAccount.getBalance());
 
-            RegularAccount.setBalance(600);
-            RegularAccount.Deposit(0);
-            Assert.Equal(600, RegularAccount.getBalance());
+            regularAccount.setBalance(600);
+            regularAccount.Deposit(0);
+            Assert.Equal(600, regularAccount.getBalance());
 
         }
 
         [Fact]
         public void AddInterestTest()
         {
-            var RegularAccount = new RegularAccount(1000);
-            RegularAccount.AddInterest();
-            Assert.Equal(1000.416, RegularAccount.getBalance(), 3);
+            var regularAccount = new RegularAccount(1000);
+            regularAccount.AddInterest();
+            Assert.Equal(1000.416, regularAccount.getBalance(), 3);
+
+            regularAccount.setBalance(150);
+            Assert.Equal(150, regularAccount.getBalance());
 
         }
     }
