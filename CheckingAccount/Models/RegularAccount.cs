@@ -38,9 +38,6 @@ namespace CheckingAccount
             }
 
             interestRate = getInterestRate();
-                
-                
-            
 
 
             setBalance(balance + (balance * ((interestRate)/100) * .0833));
